@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: yasamdongusu-ornegi
+spec:
+  containers:
+  - name: yasamdongusu-ornegi-konteyner
+    image: nginx
+    lifecycle:
+      postStart:
+        exec:
+          command: ["/bin/sh", "-c", "echo Pod başlangıç kancasından merhaba > /usr/share/message"]
+      preStop:
+        exec:
+          command: ["/bin/sh","-c","nginx -s quit; while killall -0 nginx; do sleep 1; done"]
