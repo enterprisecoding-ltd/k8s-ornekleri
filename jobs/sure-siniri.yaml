@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+ name: sure-siniri
+spec:
+ backoffLimit: 5
+ activeDeadlineSeconds: 20
+ template:
+   metadata:
+     name: sure-siniri
+   spec:
+     containers:
+     - name: sure-siniri-konteyner
+       image: busybox
+       command: ["/bin/sh","-c"]
+       args: ["echo 'Süre sınırlı iş çalışıyor..'; sleep 1; exit 1"]
+     restartPolicy: OnFailure
