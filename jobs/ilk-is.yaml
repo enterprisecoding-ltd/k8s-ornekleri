@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+ name: ilk-is
+spec:
+ template:
+   metadata:
+     name: ilk-is
+   spec:
+     containers:
+     - name: ilk-is-konteyner
+       image: busybox
+       command: ["echo", "İlk iş çalışıyor.."]
+     restartPolicy: OnFailure

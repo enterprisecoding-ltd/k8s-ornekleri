@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+ name: yeniden-baslatma-politikasi
+spec:
+ template:
+   metadata:
+     name: yeniden-baslatma-politikasi
+   spec:
+     containers:
+     - name: yeniden-baslatma-politikasi-konteyner
+       image: busybox
+       command: ["echo", "İlk iş çalışıyor.."]
+     restartPolicy: Always

@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+ name: paralel-is
+spec:
+ parallelism: 6
+ template:
+   metadata:
+     name: paralel-is
+   spec:
+     containers:
+     - name: paralel-is-konteyner
+       image: busybox
+       command: ["/bin/sh","-c"]
+       args: ["echo 'Paralel iş çalışıyor..'; sleep $(shuf -i 5-10 -n 1)"]
+     restartPolicy: OnFailure

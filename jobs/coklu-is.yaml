@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+ name: coklu-is
+spec:
+ completions: 3
+ template:
+   metadata:
+     name: coklu-is
+   spec:
+     containers:
+     - name: coklu-is-konteyner
+       image: busybox
+       command: ["/bin/sh","-c"]
+       args: ["echo 'Çoklu iş çalışıyor..'; sleep 5"]
+     restartPolicy: OnFailure
