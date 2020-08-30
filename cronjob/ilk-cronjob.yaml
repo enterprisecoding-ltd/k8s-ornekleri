@@ -1,0 +1,15 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: ilk-cronjob
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: ilk-cronjob-konteyner
+            image: busybox
+            command: ["echo", "İlk zamanlanmış iş çalışıyor.."]
+          restartPolicy: OnFailure
