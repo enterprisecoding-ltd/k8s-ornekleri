@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ilk-pod
+spec:
+  containers:
+  - name: ilk-pod-konteyner-1
+    image: busybox
+    command: ['sh', '-c', 'echo "Konteyner1 den Merhaba, Kubernetes!" && sleep 3600']
+  - name: ilk-pod-konteyner-2
+    image: busybox
+    command: ['sh', '-c', 'echo "Konteyner2 den Merhaba, Kubernetes!" && sleep 3600']

@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: http-server-service
+spec:
+  selector:
+    app: http-server-pod
+  ports:
+  - protocol: TCP
+    port: 4000
+    targetPort: http
