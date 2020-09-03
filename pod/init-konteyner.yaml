@@ -12,7 +12,7 @@ spec:
     - name: workdir
       mountPath: /usr/share/nginx/html
   initContainers:
-  - name: hazırlık
+  - name: hazirlik
     image: busybox
     command:
     - wget
