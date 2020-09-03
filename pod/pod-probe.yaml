@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-probe
+spec:
+  containers:
+  - name: uygulama
+    image: enterprisecodingcom/k8sornek
+    readinessProbe:
+      httpGet:
+        path: /health/ready
+        port: 80
+        scheme: HTTP
+      initialDelaySeconds: 10
+      periodSeconds: 15
+    livenessProbe:
+      initialDelaySeconds: 2
+      periodSeconds: 5
+      httpGet:
+        path: /health/live
+        port: 80
+        scheme: HTTP
