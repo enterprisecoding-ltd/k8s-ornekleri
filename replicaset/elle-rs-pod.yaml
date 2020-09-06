@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: elle-rs-pod
+  labels:
+    app: k8sornek
+spec:
+  containers:
+  - name: uygulama
+    image: enterprisecodingcom/k8sornek
