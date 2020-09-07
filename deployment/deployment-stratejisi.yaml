@@ -1,12 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ilk-deployment
+  name: deployment-stratejisi
   labels:
     app: k8sornek
 spec:
   revisionHistoryLimit: 10
   replicas: 3
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
       app: k8sornek
