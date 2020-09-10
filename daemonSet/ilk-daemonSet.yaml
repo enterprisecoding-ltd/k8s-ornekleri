@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: ilk-daemonset
+  labels:
+    app: k8sornek
+spec:
+  selector:
+    matchLabels:
+      app: k8sornek
+  template:
+    metadata:
+      labels:
+        app: k8sornek
+    spec:
+      containers:
+      - name: uygulama
+        image: enterprisecodingcom/k8sornek
+        ports:
+        - containerPort: 80
