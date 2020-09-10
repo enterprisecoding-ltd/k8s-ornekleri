@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: uygulama-servisi-np
+  labels:
+    app: k8sornek
+spec:
+  selector:
+    app: k8sornek
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: NodePort
