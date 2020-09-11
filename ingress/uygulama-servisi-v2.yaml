@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: uygulama-servisi-v2
+  labels:
+    app: k8sornek
+    version: v2
+spec:
+  selector:
+    app: k8sornek
+    version: v2
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
