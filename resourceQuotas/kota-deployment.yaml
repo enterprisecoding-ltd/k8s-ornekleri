@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kota-deployment
+  namespace: kota-calismasi
+  labels:
+    app: k8sornek
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: k8sornek
+  template:
+    metadata:
+      labels:
+        app: k8sornek
+    spec:
+      containers:
+      - name: uygulama
+        image: enterprisecodingcom/k8sornek
+        ports:
+        - containerPort: 80
