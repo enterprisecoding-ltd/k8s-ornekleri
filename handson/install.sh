@@ -12,9 +12,11 @@ cat << "EOF"
                             |_|                                            |___/
 ===================================================================================
 
-Kubernetes handson ortamı kullanıma hazırlanıyor lütfen bekleyiniz
-kubectl create -f https://raw.githubusercontent.com/enterprisecoding-ltd/k8s-ornekleri/master/handson/handson-install.yaml
+Kubernetes handson sınav ortamı kullanıma hazırlanıyor lütfen bekleyiniz
 EOF
+
+kubectl create -f https://raw.githubusercontent.com/enterprisecoding-ltd/k8s-ornekleri/master/handson/handson-install.yaml
+
 while [[ $(kubectl get pods -n handson -o 'jsonpath={..status.conditions[?(@.type=="Ready")].status}') != "True True" ]]; do printf "." && sleep 1; done
 echo ""
-echo "Kubernetes handson ortamı kullanıma hazır. Başarılar..."
+echo "Kubernetes handson sınav ortamı kullanıma hazır. Başarılar..."
