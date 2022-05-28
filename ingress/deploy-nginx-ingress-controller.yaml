@@ -321,7 +321,6 @@ metadata:
   name: ingress-nginx-controller
   namespace: ingress-nginx
 spec:
-  externalTrafficPolicy: Local
   ports:
   - appProtocol: http
     name: http
@@ -337,7 +336,7 @@ spec:
     app.kubernetes.io/component: controller
     app.kubernetes.io/instance: ingress-nginx
     app.kubernetes.io/name: ingress-nginx
-  type: LoadBalancer
+  type: NodePort
 ---
 apiVersion: v1
 kind: Service
@@ -391,7 +390,6 @@ spec:
       containers:
       - args:
         - /nginx-ingress-controller
-        - --publish-service=$(POD_NAMESPACE)/ingress-nginx-controller
         - --election-id=ingress-controller-leader
         - --controller-class=k8s.io/ingress-nginx
         - --ingress-class=nginx
