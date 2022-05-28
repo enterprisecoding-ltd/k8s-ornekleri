@@ -1,26 +1,27 @@
-apiVersion: networking.k8s.io/v1
+apiVersion: networking.k8s.io/v1 
 kind: Ingress
 metadata:
   name: ilk-ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  ingressClassName: nginx
   rules:
   - http:
       paths:
-      - pathType: Prefix
-        path: /v1(/|$)(.*)
+      - path: /v1
+        pathType: Prefix
         backend:
           service:
             name: uygulama-servisi-v1
-            port:
+            port: 
               number: 80
   - http:
       paths:
-      - pathType: Prefix
-        path: /v2(/|$)(.*)
+      - path: /v2
+        pathType: Prefix
         backend:
           service:
             name: uygulama-servisi-v2
-            port:
+            port: 
               number: 80
